@@ -1,7 +1,7 @@
 name: ci-golang-workflow
 on: [push]
 jobs: 
-  check-applcation:
+  check-application:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
