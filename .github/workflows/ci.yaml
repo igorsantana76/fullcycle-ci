@@ -6,13 +6,10 @@ on:
 jobs: 
   check-application:
     runs-on: ubuntu-latest
-    strategy: 
-      matrix:
-        go: ['1.14', '1.15']
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-go@v2
         with:
-          go-version: ${{ matrix.go }}
+          go-version: 1.15
       - run: cd src && go test
       - run: go run src/math.go
