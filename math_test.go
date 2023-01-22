@@ -13,7 +13,7 @@ func TestSomar(t *testing.T) {
 
 func TestSubtrair(t *testing.T) {
 
-	total := subitracao(15, 15)
+	total := subtracao(15, 15)
 
 	if total != 0 {
 		t.Error("Resultado deve ser 0")
