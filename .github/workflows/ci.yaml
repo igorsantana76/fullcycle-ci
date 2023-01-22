@@ -11,8 +11,8 @@ jobs:
       - uses: actions/setup-go@v2
         with:
           go-version: 1.15
-      - run: cd src && go test
-      - run: go run src/math.go
+      - run: cd src && go test -coverprofile=coverage.out
+      - run: go run src/math.go 
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -32,3 +32,9 @@ jobs:
         with:
           push: true
           tags: igorsantana76/fullcycle-ci
+      
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
